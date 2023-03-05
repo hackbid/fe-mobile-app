@@ -1,0 +1,1 @@
+import TabBarBackground from './TabBarBackground';
