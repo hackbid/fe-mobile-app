@@ -1,6 +1,7 @@
-import axios from "axios";
-import { FETCH_CATEGORIES, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./ActionType";
-const SERVER_URL = "http://192.168.1.20:4000";
+import axios from 'axios';
+import { FETCH_CATEGORIES, LOGIN_SUCCESS, LOGOUT_SUCCESS } from './ActionType';
+const SERVER_URL = 'http:192.168.1.10:4000';
+
 
 //FOR STATE
 export const changeLogin = (data) => {
