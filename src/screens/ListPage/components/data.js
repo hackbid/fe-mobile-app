@@ -3,7 +3,7 @@ export const data = [
     id: 1,
     name: "Lenovo Ideapad 3",
     description:
-      "Ini merupakan deskripsi yang sangat panjangsekali untuk judul 1, Ini merupakan deskripsi yang sangat panjang sekali untuk judul 1, Ini merupakan deskripsi yang sangat panjang sekali untuk judul 1,  ",
+      'From "Most Eye-Catching Laptops" to "The Most Innovative Products and Technologies", Lenovo was honored to win more than 80 awards from CES. The Lenovo IdeaPad 3 comes in different models with various specifications, so you can choose the one that suits your budget and requirements. However, for regular use, I would suggest going for the following specifications: The Lenovo IdeaPad 3 comes in different models with various specifications, so you can choose the one that suits your budget and requirements. However, for regular use, I would suggest going for the following specifications:',
     date: "12/12/24",
     imageUrl:
       "https://cdn.thewirecutter.com/wp-content/media/2022/10/laptopstopicpage-2048px-2029.jpg?auto=webp&quality=75&width=1024",
@@ -42,7 +42,7 @@ export const data = [
       "Ini merupakan deskripsi yang sangat panjang sekali untuk judul 5",
     date: "12/12/24",
     imageUrl:
-      "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/a492d797-cd0a-487d-98c8-d3416c587f35/air-max-dawn-shoe-gq9GGH.png",
+      "https://media.wired.com/photos/5fb2cc575c9914713ead03de/1:1/w_1358,h_1358,c_limit/Gear-Apple-MacBook-Air-top-down-SOURCE-Apple.jpg",
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ export const data = [
       "Ini merupakan deskripsi yang sangat panjang sekali untuk judul 6",
     date: "12/12/24",
     imageUrl:
-      "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/a492d797-cd0a-487d-98c8-d3416c587f35/air-max-dawn-shoe-gq9GGH.png",
+      "https://cdn.thewirecutter.com/wp-content/media/2022/10/laptopstopicpage-2048px-2029.jpg?auto=webp&quality=75&width=1024",
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ export const data = [
       "Ini merupakan deskripsi yang sangat panjang sekali untuk judul 7",
     date: "12/12/24",
     imageUrl:
-      "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/a492d797-cd0a-487d-98c8-d3416c587f35/air-max-dawn-shoe-gq9GGH.png",
+      "https://i.pcmag.com/imagery/reviews/02lcg0Rt9G3gSqCpWhFG0o1-2..v1656623239.jpg",
   },
   {
     id: 8,
@@ -69,6 +69,6 @@ export const data = [
       "Ini merupakan deskripsi yang sangat panjang sekali untuk judul 8",
     date: "12/12/24",
     imageUrl:
-      "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/a492d797-cd0a-487d-98c8-d3416c587f35/air-max-dawn-shoe-gq9GGH.png",
+      "https://www.digitaltrends.com/wp-content/uploads/2021/11/macbook-pro-2021-16.jpg?p=1",
   },
 ];

@@ -4,7 +4,7 @@ import CardAuction from "./CardAuction";
 
 export default function CardContainer({}) {
   return (
-    <View className="flex items-center my-20">
+    <View className="flex items-center mb-20 mt-10">
       <FlatList
         data={data}
         numColumns={2}
@@ -12,6 +12,7 @@ export default function CardContainer({}) {
           return <CardAuction item={item} />;
         }}
         keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

@@ -6,6 +6,7 @@ import {
   TouchableNativeFeedback,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import TypeWriter from "react-native-typewriter";
 
 export default function CardAuction({ item, index }) {
   const navigation = useNavigation();
