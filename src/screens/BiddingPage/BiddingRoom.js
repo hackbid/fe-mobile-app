@@ -1,11 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { View, Text, ScrollView, Pressable, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Pressable,
+  TextInput,
+  Dimensions,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
 export default function BiddingRoom({ route, navigation }) {
   const { roomId } = route.params;
-
   return (
     <View>
-      <StatusBar hidden={true} />
       <View
         className="bg-slate-300 mt-3 mx-7 py-5 px-5 h-32"
         style={{
@@ -122,7 +128,11 @@ export default function BiddingRoom({ route, navigation }) {
           placeholder={"masukan pesan"}
         />
         <Pressable className="bg-blue-800 mx-1 p-3 px-4 rounded-lg">
-          <Text className="text-white font-bold text-xl">{">>"}</Text>
+          <Ionicons
+            name="arrow-forward-circle-outline"
+            size={25}
+            color="white"
+          />
         </Pressable>
       </View>
       <View
