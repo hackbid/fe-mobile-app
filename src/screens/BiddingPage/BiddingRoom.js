@@ -1,14 +1,11 @@
+import { StatusBar } from "expo-status-bar";
 import { View, Text, ScrollView, Pressable, TextInput } from "react-native";
 export default function BiddingRoom({ route, navigation }) {
   const { roomId } = route.params;
 
   return (
     <View>
-      <View className="bg-blue-900 py-5 px-5 h-16">
-        <Text className="text-slate-50 text-xl font-semibold">
-          {roomId} Halaman list
-        </Text>
-      </View>
+      <StatusBar hidden={true} />
       <View
         className="bg-slate-300 mt-3 mx-7 py-5 px-5 h-32"
         style={{
