@@ -1,13 +1,12 @@
 import { Text, View, StyleSheet } from "react-native";
+import Hamburger from "./Hamburger";
 
 export default function HeaderList() {
   return (
-    <View className=" bg-yellow-500 p-6 rounded-b-3xl">
-      <View>
-        <Text
-          style={styles.auctionText}
-          className="text-lg text-slate-700  font-bold"
-        >
+    <View className=" bg-yellow-500 p-6 rounded-b-3xl ">
+      <View className="flex-row">
+        <Hamburger />
+        <Text style={styles.auctionText} className="text-2xl">
           AUCTION LIST
         </Text>
       </View>
@@ -20,5 +19,6 @@ const styles = StyleSheet.create({
     color: "#302F2E",
     fontWeight: "700",
     textAlign: "center",
+    flex: 1,
   },
 });
