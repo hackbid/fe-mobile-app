@@ -17,7 +17,7 @@ export default function BiddingList({ navigation }) {
 
   return (
     <View>
-      <View className=" bg-yellow-500 p-6 rounded-b-3xl flex flex-row">
+      <View className=" bg-yellow-500 p-5 rounded-b-3xl flex flex-row">
         <View className="mx-2 mt-2 mr-3">
           <Foundation name="list" size={30} color="black" />
         </View>
