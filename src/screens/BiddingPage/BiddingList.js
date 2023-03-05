@@ -1,9 +1,15 @@
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from "react-native";
 
 export default function BiddingList({ navigation }) {
-    return (
-        <View>
-            <Text>Ini Bidding List, beriki data2 item yang dilelang hari ini, harus ada tombol join room</Text>
-        </View>
-    );
+  return (
+    <View>
+      <Pressable
+        onPress={() => {
+          navigation.navigate("BiddingRoom", { roomId: 1 });
+        }}
+      >
+        <Text>Ini list</Text>
+      </Pressable>
+    </View>
+  );
 }
