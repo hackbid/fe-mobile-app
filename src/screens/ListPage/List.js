@@ -1,19 +1,12 @@
-import { FlatList, Text, useWindowDimensions, View } from "react-native";
-import CardAuction from "./components/CardAuction";
-
-import { data } from "./components/data";
+import HeaderList from "./components/HeaderList";
+import { Fragment } from "react";
+import CardContainer from "./components/CardContainer";
 
 export default function List() {
   return (
-    <View className="flex items-center">
-      <FlatList
-        data={data}
-        numColumns={2}
-        renderItem={({ item }) => {
-          return <CardAuction item={item} />;
-        }}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <Fragment>
+      <HeaderList />
+      <CardContainer />
+    </Fragment>
   );
 }
