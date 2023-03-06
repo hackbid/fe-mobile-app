@@ -28,22 +28,23 @@ export default function HomePage({ navigation }) {
     const product = [
         {
             id: 1,
-            name: 'Baju',
-            image: 'https://images.tokopedia.net/img/cache/730/kjjBfF/2021/6/14/658ede0f-7236-425e-bef3-a498a6c14912.jpg',
+            image: require('./banner/2.png'),
         },
         {
             id: 2,
-            name: 'Celana',
-            image: 'https://images.tokopedia.net/img/cache/730/kjjBfF/2021/6/14/658ede0f-7236-425e-bef3-a498a6c14912.jpg',
+            image: require('./banner/3.png'),
         },
         {
             id: 3,
-            name: 'Sepatu',
-            image: 'https://images.tokopedia.net/img/cache/730/kjjBfF/2021/6/14/658ede0f-7236-425e-bef3-a498a6c14912.jpg',
+            image: require('./banner/1.png'),
+        },
+        {
+            id: 4,
+            image: require('./banner/4.png'),
         },
     ];
     return (
-        <ScrollView style={{ flex: 1, height: height, width: width }} className='bg-yellow-50'>
+        <ScrollView style={{ flex: 1, height: height, width: width }} className='bg-[#FFFDF5]'>
             <StatusBar backgroundColor={'#07114F'} />
             <ImageBackground source={require('../../../assets/banner.png')} style={{ width: width, height: height * 0.28 }} resizeMode='cover'>
                 <View className='my-16 ml-10'>
@@ -89,10 +90,7 @@ export default function HomePage({ navigation }) {
                 renderItem={({ item }) => {
                     return (
                         <View style={styled.banner}>
-                            <Image
-                                source={{ uri: item.image }}
-                                style={{ width: width * 0.9, height: height * 0.2, marginHorizontal: 7, borderRadius: 20 }}
-                            />
+                            <Image source={item.image} style={{ width: width * 0.9, height: height * 0.22, marginHorizontal: 7, borderRadius: 10 }} />
                         </View>
                     );
                 }}

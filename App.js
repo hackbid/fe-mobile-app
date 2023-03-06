@@ -28,7 +28,7 @@ function MainApp() {
                         iconName = 'ios-list-circle';
                     }
                     if (route.name === 'TransactionPageStack') {
-                        iconName = 'ios-list-circle';
+                        iconName = 'cart';
                     }
                     if (route.name === 'AccountPageStack') {
                         iconName = 'ios-person';
