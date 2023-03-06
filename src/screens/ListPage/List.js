@@ -1,19 +1,19 @@
 import HeaderList from './components/HeaderList';
-import { Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import CardContainer from './components/CardContainer';
 import { BottomSheet } from 'react-native-btr';
-import { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function List() {
     const [visible, setVisible] = useState(false);
-
     const toggleBottomNavigationView = () => {
         //Toggling the visibility state of the bottom sheet
         setVisible(!visible);
     };
+
     return (
-        <Fragment>
+        <View style={styles.fragment}>
             <HeaderList toggleBottomNavigationView={toggleBottomNavigationView} />
             <CardContainer />
             <BottomSheet
@@ -28,18 +28,22 @@ export default function List() {
                     <Text>FILTER NICH BRO</Text>
                 </View>
             </BottomSheet>
-        </Fragment>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     bottomSheet: {
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#F3F3F3',
         width: '100%',
         height: 200,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         alignItems: 'center',
         padding: 16,
+    },
+    fragment: {
+        flex: 1,
+        backgroundColor: '#FFFDF5',
     },
 });

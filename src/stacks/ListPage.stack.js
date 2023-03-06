@@ -12,7 +12,7 @@ export default function ListPageStack({ navigation, route }) {
                 headerStyle: { backgroundColor: '#07114F' },
             }}>
             <Stack.Screen name='List' component={List} options={{ headerShown: false }} />
-            <Stack.Screen name='DetailItem' component={DetailItem} options={{ title: 'Details' }} />
+            <Stack.Screen name='DetailItem' component={DetailItem} options={({ route }) => ({ title: `Detail of ${route.params.name}` })} />
             <Stack.Screen name='PostItem' component={PostItem} options={{ title: 'Post new Item' }} />
         </Stack.Navigator>
     );

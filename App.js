@@ -6,12 +6,26 @@ import { AppRegistry } from 'react-native';
 import { HomePageStack, LoginPageStack, AccountPageStack, BiddingPageStack, ListPageStack, TransactionPageStack } from './src/stacks/index';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import store from './src/store';
 import Toast from 'react-native-toast-message';
+import { fetchItems, fetchItemsToday } from './src/store/actions/actionCreator';
+import { useEffect } from 'react';
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 function MainApp() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchItems());
+        dispatch(fetchItemsToday());
+    }, []);
+    setInterval(() => {
+        dispatch(fetchItemsToday());
+    }, 10000);
+    setInterval(() => {
+        dispatch(fetchItems());
+    }, 2000000);
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({

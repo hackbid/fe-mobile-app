@@ -1,12 +1,26 @@
 import axios from 'axios';
-import { FETCH_CATEGORIES, LOGIN_SUCCESS, LOGOUT_SUCCESS } from './ActionType';
+import { FETCH_CATEGORIES, FETCH_ITEMS, FETCH_ITEMS_TODAY, LOGIN_SUCCESS, LOGOUT_SUCCESS } from './ActionType';
 
-const SERVER_URL = 'http://192.168.1.20:4000';
+const SERVER_URL = 'http://192.168.1.5:4000';
 
 //FOR STATE
 export const changeLogin = (data) => {
     return {
         type: LOGIN_SUCCESS,
+        payload: data,
+    };
+};
+
+export const setItems = (data) => {
+    return {
+        type: FETCH_ITEMS,
+        payload: data,
+    };
+};
+
+export const setItemToday = (data) => {
+    return {
+        type: FETCH_ITEMS_TODAY,
         payload: data,
     };
 };
@@ -151,6 +165,39 @@ export const patchPayment = (data) => {
                 }
             );
             return topupData;
+        } catch (err) {
+            throw err.response.data;
+        }
+    };
+};
+
+export const fetchItems = () => {
+    return async (dispatch, getState) => {
+        try {
+            const { data: itemData } = await axios.get(SERVER_URL + '/items');
+            dispatch(setItems(itemData));
+        } catch (err) {
+            throw err.response.data;
+        }
+    };
+};
+
+export const fetchItemById = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            const { data: itemData } = await axios.get(SERVER_URL + `/items/${id}`);
+            return itemData;
+        } catch (err) {
+            throw err.response.data;
+        }
+    };
+};
+
+export const fetchItemsToday = () => {
+    return async (dispatch, getState) => {
+        try {
+            const { data: itemData } = await axios.get(SERVER_URL + '/items/today');
+            dispatch(setItemToday(itemData));
         } catch (err) {
             throw err.response.data;
         }
