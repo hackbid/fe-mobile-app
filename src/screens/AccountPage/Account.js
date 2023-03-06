@@ -4,6 +4,7 @@ import { fetchUserLogin, postLogout } from '../../store/actions/actionCreator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
 import { useEffect } from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
@@ -45,8 +46,11 @@ export default function AccountPage({ navigation }) {
 
     return (
         <ScrollView className='bg-[#FFFDF5]' style={styles.container}>
-            <ImageBackground style={styles.banner} source={require('../../../assets/accountbanner.png')}>
-                <View className='flex-row gap-4 justify-center items-center'>
+            <LinearGradient
+                // Button Linear Gradient
+                colors={['#07114F', '#2239C8']}
+                className='h-20 px-8 py-2 flex-row justify-between items-center rounded-b-[60px] '>
+                <View className='flex-row mx-auto justify-center items-center'>
                     <View>
                         <Image
                             style={styles.image}
@@ -55,12 +59,12 @@ export default function AccountPage({ navigation }) {
                             }}
                         />
                     </View>
-                    <View>
+                    <View className='ml-3'>
                         <Text className='text-white text-2xl font-bold'>{userLogin?.username}</Text>
                         <Text className='text-white text-md font-light'>detail of account</Text>
                     </View>
                 </View>
-            </ImageBackground>
+            </LinearGradient>
             <Text style={styles.headText}>Balance Information</Text>
             <View className='bg-[#07114F] w-[80%] h-32 rounded-2xl mx-auto p-4 flex-row justify-around'>
                 <View className='flex bg-[#FEC72C] justify-center items-center rounded-xl w-[45%]'>

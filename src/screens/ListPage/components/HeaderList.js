@@ -1,16 +1,20 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import { Text, View, StyleSheet } from 'react-native';
 import Hamburger from './Hamburger';
 
 export default function HeaderList({ toggleBottomNavigationView }) {
     return (
-        <View className=' bg-[#FFFDF5]0 p-6 rounded-b-3xl '>
+        <LinearGradient
+            // Button Linear Gradient
+            colors={['#FFAA04', '#FEC72C']}
+            className='h-16 px-8 py-2 flex-row justify-between items-center rounded-b-3xl '>
             <View className='flex-row'>
                 <Hamburger toggleBottomNavigationView={toggleBottomNavigationView} />
                 <Text style={styles.auctionText} className='text-2xl'>
                     AUCTION LIST
                 </Text>
             </View>
-        </View>
+        </LinearGradient>
     );
 }
 
