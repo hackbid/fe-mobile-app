@@ -6,8 +6,9 @@ import {
   TouchableNativeFeedback,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import TypeWriter from "react-native-typewriter";
 
-export default function CardAuction({ item }) {
+export default function CardAuction({ item, index }) {
   const navigation = useNavigation();
   const { height, width } = useWindowDimensions();
   return (
@@ -26,8 +27,8 @@ export default function CardAuction({ item }) {
       >
         <View style={styles.container}>
           <View style={styles.headerText}>
-            <Text style={styles.textTitle}>{item.title}</Text>
-            <Text style={styles.textComingSoon}>COMING SOON</Text>
+            <Text style={styles.textTitle}>{item.name}</Text>
+            <Text style={styles.textComingSoon}>COMING SOON </Text>
           </View>
           <View style={styles.bottomText}>
             <Text style={styles.textDescription}>
