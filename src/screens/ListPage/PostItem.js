@@ -143,7 +143,7 @@ export default function PostItem() {
     };
 
     return (
-        <ScrollView className='bg-yellow-50' style={styles.container} showsVerticalScrollIndicator={false}>
+        <ScrollView className='bg-[#FFFDF5]' style={styles.container} showsVerticalScrollIndicator={false}>
             <LoadingOverlay visible={isLoading} message='Uploading Your Data' />
             <View className='w-[80%] mx-auto my-5'>
                 {errMsg && (

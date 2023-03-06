@@ -44,7 +44,7 @@ export default function AccountPage({ navigation }) {
     };
 
     return (
-        <ScrollView className='bg-yellow-50' style={styles.container}>
+        <ScrollView className='bg-[#FFFDF5]' style={styles.container}>
             <ImageBackground style={styles.banner} source={require('../../../assets/accountbanner.png')}>
                 <View className='flex-row gap-4 justify-center items-center'>
                     <View>

@@ -31,7 +31,7 @@ export default function RegisterPage({ navigation }) {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
-            aspect: [4, 3],
+            aspect: [1, 1],
             quality: 1,
         });
 
@@ -137,7 +137,7 @@ export default function RegisterPage({ navigation }) {
     return (
         <>
             <StatusBar backgroundColor={'#07114F'} />
-            <View className='flex-1 bg-yellow-50'>
+            <View className='flex-1 bg-[#FFFDF5]'>
                 <LoadingOverlay visible={isLoading} message='Uploading ...' />
                 <ScrollView className='flex-1 mx-3' showsVerticalScrollIndicator={false}>
                     <Image source={logo} className='w-[70%] h-20 object-contain mx-auto mt-5' />
