@@ -11,7 +11,9 @@ export default function ChatRoom({ chats, socket, roomId, userLogin, sellerId, h
     }, []);
     useEffect(() => {
         socket.on('messageSuccess', (data) => {
-            setMessage([...message, data]);
+            setMessage((messages) => {
+                return [...messages, data];
+            });
         });
     }, [socket]);
     const sendMessage = () => {

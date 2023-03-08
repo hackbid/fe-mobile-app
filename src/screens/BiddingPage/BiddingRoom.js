@@ -45,6 +45,7 @@ export default function BiddingRoom({ route, navigation }) {
                 setChat(res.chats);
                 setHistoryMongoId(res.historyMongoId);
                 setSellerId(res.UserId);
+                setBidData({ ...bidData, bidValue: res.Winner.amountBid });
             })
             .catch((err) => {
                 console.log(err);
