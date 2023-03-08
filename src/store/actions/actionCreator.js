@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_CATEGORIES, FETCH_ITEMS, FETCH_ITEMS_TODAY, LOGIN_SUCCESS, LOGOUT_SUCCESS } from './ActionType';
 
-const SERVER_URL = 'http://192.168.1.5:4000';
+const SERVER_URL = 'https://api.hackbid.com';
 
 //FOR STATE
 export const changeLogin = (data) => {
@@ -222,11 +222,45 @@ export const postReport = (data) => {
 export const getMyAuction = (id) => {
     return async (dispatch, getState) => {
         try {
-            console.log(SERVER_URL + `/items/myauction/${id}`);
             const { data: auctionData } = await axios.get(SERVER_URL + `/items/myauction/${id}`);
             return auctionData;
         } catch (err) {
             throw err.response.data;
+        }
+    };
+};
+
+export const getWinner = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            const { data: winnerData } = await axios.get(SERVER_URL + `/items/mywinner/${id}`);
+            return winnerData;
+        } catch (err) {
+            throw err.response.data;
+        }
+    };
+};
+
+export const postWithDraw = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            const { UserId, balance } = data;
+            await axios.post(`${SERVER_URL}/users/withdraw/request/${UserId}`, { balance });
+            return;
+        } catch (error) {
+            throw error.response.data;
+        }
+    };
+};
+
+export const postCheckout = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            const { SellerId, ItemId, BuyerId, summary } = data;
+            const { data: checkoutData } = await axios.post(`${SERVER_URL}/items/checkout`, { SellerId, ItemId, BuyerId, summary });
+            return checkoutData;
+        } catch (error) {
+            throw error.response.data;
         }
     };
 };

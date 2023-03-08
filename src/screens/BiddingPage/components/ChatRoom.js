@@ -33,7 +33,7 @@ export default function ChatRoom({ chats, socket, roomId, userLogin, sellerId, h
             <View style={{ height: height * 0.3, marginTop: 10 }}>
                 <Text className='font-bold absolute z-50 left-[30] -top-10 text-center rounded-md p-2 w-[85%] bg-gray-300'>Room Chats</Text>
                 <ScrollView
-                    className='text-slate-50 text-xs font-normal bg-[#F3F3F3] py-2 mx-8 px-4'
+                    className='text-slate-50 text-xs font-normal bg-white py-2 mx-8 px-4'
                     showsVerticalScrollIndicator={false}
                     style={{ borderRadius: 15, overflow: 'hidden', top: -35, height: 20, marginTop: 25 }}>
                     {message?.length > 0 &&
@@ -41,9 +41,9 @@ export default function ChatRoom({ chats, socket, roomId, userLogin, sellerId, h
                             const style = chat.isSeller == 'true' ? 'text-right bg-yellow-100' : 'bg-blue-100';
                             const padding = chat.username == userLogin.username ? 'ml-32' : 'pl-2';
                             return (
-                                <View key={index} className={`${style} ${padding} ` + 'flex mb-2 w-[60%] px-2 py-1 rounded-lg'}>
+                                <View key={index} className={`${style} ${padding} ` + 'flex mt-2 mb-2 w-[60%] px-2 py-1 rounded-lg'}>
                                     <View className='flex'>
-                                        <Text className='text-gray-700 font-bold text-[10px]'>{chat?.username}</Text>
+                                        <Text className='text-gray-700 font-bold text-[11px]'>{chat?.username}</Text>
                                         <Text className='text-gray-700 text-[11px]'>{chat?.chatValue}</Text>
                                     </View>
                                 </View>

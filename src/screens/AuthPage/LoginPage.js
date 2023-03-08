@@ -64,7 +64,7 @@ export default function LoginPage({ navigation }) {
         <>
             <StatusBar backgroundColor='#07114F' />
             <LoadingOverlay visible={isLoading} message='please wait' />
-            <View style={{ flex: 1, height: height, width: width }} className='bg-[#FFFDF5]'>
+            <View style={{ flex: 1, height: height, width: width }} className='bg-[#F5F5F5]'>
                 <Image source={logo} style={{ marginTop: width * 0.3 }} className='w-[70%] h-20 object-contain mx-auto' />
                 <View className='flex-1 my-10 mx-5'>
                     <Text className='text-3xl font-bold'>Login</Text>

@@ -82,9 +82,18 @@ export default function BiddingRoom({ route, navigation }) {
         username: userLogin.username,
         bidValue: 0,
     });
-    const handleBid = async () => {
-        socket.emit('bid', bidData);
+    const handleBid = () => {
         toggleBottomNavigationView();
+        if (bidData.bidValue > userLogin.balance) {
+            Toast.show({
+                type: 'error',
+                position: 'top',
+                text1: 'Your Balance is Not Enough To Bid',
+                visibilityTime: 5000,
+            });
+        } else {
+            socket.emit('bid', bidData);
+        }
     };
     const [report, setReport] = useState({
         itemId: id,
@@ -112,7 +121,7 @@ export default function BiddingRoom({ route, navigation }) {
                     <LoadingOverlay visible={isLoading} message='fetching data' />
                 </View>
             ) : (
-                <View className='bg-[#FFFDF5]' style={{ width: width, height: height }}>
+                <View className='bg-[#F5F5F5]' style={{ width: width, height: height }}>
                     <TopRoom item={item} winner={winner} navigation={navigation} socket={socket} itemId={item.id} />
                     <View className='relative -top-10'>
                         <CountDown until={time} onFinish={() => navigation.navigate('BiddingList')} size={25} />

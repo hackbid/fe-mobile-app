@@ -49,7 +49,7 @@ export default function CardToday({ data, navigation }) {
             style={{
                 height: height * 0.2,
                 width: width * 0.9,
-                backgroundColor: '#F3F3F3',
+                backgroundColor: '#F5F5F5',
                 borderColor: 'rgba(7, 17, 79, 0.8)',
                 borderWidth: 0.5,
 

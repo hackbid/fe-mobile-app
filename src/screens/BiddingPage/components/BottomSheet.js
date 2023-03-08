@@ -51,7 +51,7 @@ export default function ButtonSheet({ visible, toggleBottomNavigationView, multi
 
 const styles = StyleSheet.create({
     bottomSheet: {
-        backgroundColor: '#F3F3F3',
+        backgroundColor: '#F5F5F5',
         width: '100%',
         height: 150,
         borderTopLeftRadius: 30,

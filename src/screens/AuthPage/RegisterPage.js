@@ -111,7 +111,7 @@ export default function RegisterPage({ navigation }) {
         setIsLoading(true);
         axios({
             method: 'post',
-            url: 'http://192.168.1.5:4000/users/register',
+            url: 'https://api.hackbid.com/users/register',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -137,7 +137,7 @@ export default function RegisterPage({ navigation }) {
     return (
         <>
             <StatusBar backgroundColor={'#07114F'} />
-            <View className='flex-1 bg-[#FFFDF5]'>
+            <View className='flex-1 bg-[#F5F5F5]'>
                 <LoadingOverlay visible={isLoading} message='Uploading ...' />
                 <ScrollView className='flex-1 mx-3' showsVerticalScrollIndicator={false}>
                     <Image source={logo} className='w-[70%] h-20 object-contain mx-auto mt-5' />

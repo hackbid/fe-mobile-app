@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserLogin, postLogout } from '../../store/actions/actionCreator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import Rupiah from '../../helpers/Rupiah';
+import ModalWd from './ModalWd';
+import { useFocusEffect } from '@react-navigation/native';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
@@ -13,17 +16,20 @@ export default function AccountPage({ navigation }) {
 
     const userLogin = useSelector((state) => state.user.user);
 
-    useEffect(() => {
-        const checkLogin = async () => {
-            const UserId = await AsyncStorage.getItem('id');
-            if (UserId) {
-                dispatch(fetchUserLogin(UserId));
-            } else {
-                navigation.navigate('LoginPageStack');
-            }
-        };
-        checkLogin();
-    }, []);
+    const checkLogin = async () => {
+        const UserId = await AsyncStorage.getItem('id');
+        if (UserId) {
+            dispatch(fetchUserLogin(UserId));
+        } else {
+            navigation.navigate('LoginPageStack');
+        }
+    };
+
+    useFocusEffect(
+        useCallback(() => {
+            checkLogin();
+        }, [])
+    );
 
     const LogoutHandler = () => {
         dispatch(postLogout())
@@ -43,9 +49,10 @@ export default function AccountPage({ navigation }) {
                 console.log(err);
             });
     };
-
+    const [modalVisible, setModalVisible] = useState(false);
     return (
-        <ScrollView className='bg-[#FFFDF5]' style={styles.container}>
+        <ScrollView className='bg-[#F5F5F5]' style={styles.container}>
+            <ModalWd modalVisible={modalVisible} setModalVisible={setModalVisible} user={userLogin} />
             <LinearGradient
                 // Button Linear Gradient
                 colors={['#07114F', '#2239C8']}
@@ -69,7 +76,7 @@ export default function AccountPage({ navigation }) {
             <View className='bg-[#07114F] w-[80%] h-32 rounded-2xl mx-auto p-4 flex-row justify-around'>
                 <View className='flex bg-[#FEC72C] justify-center items-center rounded-xl w-[45%]'>
                     <Text className='text-[10px]'>Your Balance</Text>
-                    <Text className='text-[15px] font-bold'>Rp. {userLogin?.balance}</Text>
+                    <Text className='text-[15px] font-bold'>{Rupiah(userLogin?.balance)}</Text>
                 </View>
                 <View className='flex justify-center items-center w-[45%] gap-2'>
                     <TouchableOpacity
@@ -81,7 +88,7 @@ export default function AccountPage({ navigation }) {
                         }}>
                         <Text className='text-[15px] bg-[#319302] w-32 px-2 py-0.5 rounded-lg text-center font-bold text-white'>TOP UP</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setModalVisible(true)}>
                         <Text className='text-[15px] bg-[#FFA800] w-32 px-2 py-0.5 rounded-lg text-center font-bold text-white'>WITHDRAW</Text>
                     </TouchableOpacity>
                     <TouchableOpacity

@@ -50,7 +50,7 @@ export default function BiddingList({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFFDF5',
+        backgroundColor: '#F5F5F5',
         height: height,
         width: width,
     },

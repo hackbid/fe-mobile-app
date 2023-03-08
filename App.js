@@ -42,7 +42,7 @@ function MainApp() {
                         iconName = 'cart';
                     }
                     if (route.name === 'MyAuctionPageStack') {
-                        iconName = 'cart';
+                        iconName = 'file-tray-sharp';
                     }
                     if (route.name === 'AccountPageStack') {
                         iconName = 'ios-person';
@@ -59,8 +59,8 @@ function MainApp() {
             <Tab.Screen name='HomePageStack' component={HomePageStack} options={{ title: 'HOME' }} />
             <Tab.Screen name='BiddingPageStack' component={BiddingPageStack} options={{ title: 'TODAY' }} />
             <Tab.Screen name='ListPageStack' component={ListPageStack} options={{ title: 'AUCTION' }} />
-            <Tab.Screen name='TransactionPageStack' component={TransactionPageStack} options={{ title: 'CART' }} />
             <Tab.Screen name='MyAuctionPageStack' component={MyAuctionPageStack} options={{ title: 'MY AUCTION' }} />
+            <Tab.Screen name='TransactionPageStack' component={TransactionPageStack} options={{ title: 'TRANSACTION' }} />
             <Tab.Screen name='AccountPageStack' component={AccountPageStack} options={{ title: 'ACCOUNT' }} />
         </Tab.Navigator>
     );

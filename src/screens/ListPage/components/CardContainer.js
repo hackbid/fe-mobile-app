@@ -8,7 +8,7 @@ export default function CardContainer({}) {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.apps.items);
     return (
-        <View className='flex items-center py-2 bg-[#FFFDF5]'>
+        <View className='flex items-center py-2 bg-[#F5F5F5]'>
             <FlatList
                 data={items}
                 numColumns={2}

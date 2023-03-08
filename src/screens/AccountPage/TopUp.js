@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, Dimensions, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Dimensions, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import LoadingOverlay from '../../components/atoms/LoadingOverlay';
 import { fetchUserLogin, patchPayment, postTopup } from '../../store/actions/actionCreator';
@@ -52,35 +52,42 @@ export default function TopUp({ route, navigation }) {
         }
     };
     return (
-        <>
+        <View style={styles.container}>
             {topUpSession ? (
-                <WebView style={styles.container} source={{ uri: topUpUrl }} onNavigationStateChange={onNavigationStateChange} />
+                <WebView source={{ uri: topUpUrl }} onNavigationStateChange={onNavigationStateChange} />
             ) : (
-                <View style={styles.container}>
+                <>
+                    <View className='relative bg-[#07114F] justify-center items-center rounded-b-[130px]' style={{ flex: 1 }}>
+                        <Image source={require('./midtrans.png')} style={{ height: 220, width: 220 }} />
+                    </View>
                     <LoadingOverlay visible={isLoading} message='Processing Top Up ..' />
-
-                    <Text className='text-3xl font-bold my-3'>TOP UP</Text>
-                    {errMsg && (
-                        <View className='mt-5 bg-red-100 w-[80%] border border-red-400 py-2 rounded-md' role='alert'>
-                            <Text className='text-red-700 text-center'>{errMsg}</Text>
-                        </View>
-                    )}
-                    <TextInput
-                        className='border-2 bg-white w-[80%] border-[#07114f]/50 rounded-md p-2 text-[14px] my-2'
-                        placeholder='Top Up Nominal'
-                        name='topup'
-                        type='TextInput'
-                        keyboardType='numeric'
-                        onChangeText={(topUpValue) => setAmmount(topUpValue)}
-                    />
-                    <TouchableOpacity onPress={topUpButtonHandler}>
-                        <Text className='text-[15px] flex justify-end bg-[#319302] px-3 py-2 rounded-lg text-center font-bold text-white'>
-                            TOP UP
-                        </Text>
-                    </TouchableOpacity>
-                </View>
+                    <View className='w-[80%] mx-auto justify-center' style={{ flex: 3 }}>
+                        <Text className='text-3xl font-bold my-3 text-center'>TOP UP</Text>
+                        {errMsg && (
+                            <View className='mt-5 bg-red-100 border border-red-400 py-2 rounded-md' role='alert'>
+                                <Text className='text-red-700 text-center'>{errMsg}</Text>
+                            </View>
+                        )}
+                        <TextInput
+                            className='border-2 bg-white border-[#07114f]/50 rounded-md p-2 text-[14px] my-2'
+                            placeholder='Top Up Nominal'
+                            name='topup'
+                            type='TextInput'
+                            keyboardType='numeric'
+                            onChangeText={(topUpValue) => setAmmount(topUpValue)}
+                        />
+                        <TouchableOpacity onPress={topUpButtonHandler}>
+                            <Text className='text-[15px] flex justify-end bg-[#319302] px-3 py-2 rounded-lg text-center font-bold text-white'>
+                                TOP UP
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View className='flex-1' style={{ flex: 1 }}>
+                        <Text className='text-[14px] text-center text-[#07114f]/50'>Powered by Midtrans</Text>
+                    </View>
+                </>
             )}
-        </>
+        </View>
     );
 }
 const styles = StyleSheet.create({
@@ -88,8 +95,6 @@ const styles = StyleSheet.create({
         flex: 1,
         height: height,
         width: width,
-        backgroundColor: '#FFFDF5',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#F5F5F5',
     },
 });

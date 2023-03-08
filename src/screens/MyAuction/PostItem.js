@@ -10,8 +10,9 @@ import axios from 'axios';
 
 const { width, height } = Dimensions.get('window');
 import LoadingOverlay from '../../components/atoms/LoadingOverlay';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
-export default function PostItem() {
+export default function PostItem({ navigation }) {
     const dispatch = useDispatch();
     const userLogin = useSelector((state) => state.user.user);
     const categories = useSelector((state) => state.apps.categories);
@@ -24,8 +25,8 @@ export default function PostItem() {
         startPrice: '',
         multiple: '',
         startDate: '',
-        startHour: 0,
-        endHour: '',
+        startHour: 9,
+        endHour: 20,
         weight: '',
     });
     useEffect(() => {
@@ -126,14 +127,23 @@ export default function PostItem() {
         formData.append('UserId', userLogin.id);
         axios({
             method: 'post',
-            url: 'http://192.168.1.5:4000/items',
+            url: 'https://api.hackbid.com/items',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
         })
             .then((res) => {
-                console.log(res);
+                navigation.navigate('MyAuction');
+                Toast.show({
+                    type: 'success',
+                    text1: 'Success',
+                    text2: 'Your item has been posted',
+                    visibilityTime: 2000,
+                    autoHide: true,
+                    topOffset: 30,
+                    bottomOffset: 40,
+                });
             })
             .catch((err) => {
                 console.log(err);
@@ -145,7 +155,7 @@ export default function PostItem() {
 
     return (
         <>
-            <ScrollView className='bg-[#FFFDF5]' style={styles.container} showsVerticalScrollIndicator={false}>
+            <ScrollView className='bg-[#F5F5F5]' style={styles.container} showsVerticalScrollIndicator={false}>
                 <LoadingOverlay visible={isLoading} message='Uploading Your Data' />
                 <View className='w-[80%] mx-auto my-5'>
                     {errMsg && (
@@ -223,7 +233,10 @@ export default function PostItem() {
                     <View className='flex-row justify-between my-2'>
                         <NumericInput
                             type='up-down'
-                            onChange={(value) => setForm({ ...form, startHour: value })}
+                            onChange={(value) => {
+                                setForm({ ...form, startHour: value });
+                            }}
+                            value={form.startHour}
                             minValue={1}
                             maxValue={24}
                             containerStyle={{ backgroundColor: 'white' }}
@@ -233,7 +246,10 @@ export default function PostItem() {
                         </View>
                         <NumericInput
                             type='up-down'
-                            onChange={(value) => setForm({ ...form, endHour: value })}
+                            onChange={(value) => {
+                                setForm({ ...form, endHour: value });
+                            }}
+                            value={form.endHour}
                             minValue={form.startHour}
                             maxValue={24}
                             containerStyle={{ backgroundColor: 'white' }}
@@ -261,7 +277,7 @@ export default function PostItem() {
                             </View>
                         ) : (
                             <TouchableOpacity className='bg-[#302F2E] rounded-md p-2 text-[15px] my-2' onPress={pickImage}>
-                                <Text className='text-center font-bold text-[#F3F3F3]'>UPLOAD IMAGES</Text>
+                                <Text className='text-center font-bold text-[#F5F5F5]'>UPLOAD IMAGES</Text>
                             </TouchableOpacity>
                         )}
                     </View>

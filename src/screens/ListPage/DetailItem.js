@@ -12,6 +12,7 @@ export default function DetailItem({ route }) {
     const dispatch = useDispatch();
     const [item, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    console.log(item);
     useEffect(() => {
         dispatch(fetchItemById(id))
             .then((res) => {
@@ -50,7 +51,7 @@ export default function DetailItem({ route }) {
                         <Text className='text-[#1D1D1D] font-semibold text-[22px]'>{item?.name}</Text>
                         <View className='flex-row gap-1 items-center'>
                             <Text className='text-[#1D1D1D] font-light italic text-[14px]'>Posted by:</Text>
-                            <Text className='text-[#1D1D1D] font-semibold italic text-[14px]'>mashayyik</Text>
+                            <Text className='text-[#1D1D1D] font-semibold italic text-[14px]'>{item?.seller.username}</Text>
                         </View>
                     </View>
                     <View className='w-[85%] mt-2 mx-auto bg-[#EAEAEA] p-3 rounded-lg'>
@@ -68,11 +69,11 @@ export default function DetailItem({ route }) {
                         <Text className='text-[#1D1D1D] text-[18px] text-center font-bold'>Bidding Session</Text>
                         <View className='flex-row justify-center'>
                             <View className='items-center mt-1 mx-1 bg-[#26CD2D] p-2 rounded-lg'>
-                                <Text className='text-[15px] text-[#f3f3f3] '>Start Hour</Text>
+                                <Text className='text-[15px] text-[#F5F5F5] '>Start Hour</Text>
                                 <Text className='text-white font-extrabold text-[25px]'>{item?.startHour}:00</Text>
                             </View>
                             <View className='items-center mt-1 mx-1 bg-[#E13636] p-2 rounded-lg'>
-                                <Text className='text-[15px] text-[#f3f3f3] '>End Hour</Text>
+                                <Text className='text-[15px] text-[#F5F5F5] '>End Hour</Text>
                                 <Text className='text-white font-extrabold text-[25px]'>{item?.endHour}:00</Text>
                             </View>
                         </View>
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     container: {
         height: height,
         width: width,
-        backgroundColor: '#FFFDF5',
+        backgroundColor: '#F5F5F5',
     },
     textName: {
         fontWeight: '900',

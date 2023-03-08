@@ -6,6 +6,7 @@ import { fetchCategory, fetchItemsToday, fetchUserLogin } from '../../store/acti
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import TypeWriter from 'react-native-typewriter';
 import { useFocusEffect } from '@react-navigation/native';
+import Rupiah from '../../helpers/Rupiah';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
@@ -46,7 +47,7 @@ export default function HomePage({ navigation }) {
         },
     ];
     return (
-        <ScrollView style={{ flex: 1, height: height, width: width }} className='bg-[#FFFDF5]'>
+        <ScrollView style={{ flex: 1, height: height, width: width }} className='bg-[#F2F2F2]'>
             <StatusBar backgroundColor={'#07114F'} />
             <ImageBackground source={require('../../../assets/banner.png')} style={{ width: width, height: height * 0.28 }} resizeMode='cover'>
                 <View className='my-16 ml-10'>
@@ -71,7 +72,7 @@ export default function HomePage({ navigation }) {
                     </View>
                     <View className='flex-initial flex-row items-center gap-2'>
                         <FontAwesome5 name='money-check' size={15} color='green' />
-                        <Text className='font-semibold'>Rp. {userLogin?.balance}</Text>
+                        <Text className='font-semibold'>{Rupiah(userLogin?.balance)}</Text>
                     </View>
                 </View>
                 <View>

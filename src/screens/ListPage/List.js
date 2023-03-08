@@ -42,7 +42,7 @@ export default function List() {
 
 const styles = StyleSheet.create({
     bottomSheet: {
-        backgroundColor: '#F3F3F3',
+        backgroundColor: '#F5F5F5',
         width: '100%',
         height: 200,
         borderTopLeftRadius: 30,
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     },
     fragment: {
         flex: 1,
-        backgroundColor: '#FFFDF5',
+        backgroundColor: '#F5F5F5',
     },
 });

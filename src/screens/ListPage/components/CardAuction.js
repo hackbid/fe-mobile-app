@@ -12,7 +12,7 @@ export default function CardAuction({ item, index }) {
             style={{
                 height: height / 4,
                 width: width / 2.3,
-                backgroundColor: '#F3F3F3',
+                backgroundColor: '#F5F5F5',
                 borderColor: 'rgba(7, 17, 79, 0.8)',
                 borderWidth: 0.5,
 
