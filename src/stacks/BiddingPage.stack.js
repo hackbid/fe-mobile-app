@@ -8,11 +8,7 @@ export default function BiddingPage({ navigation, route }) {
     return (
         <Stack.Navigator screenOptions={{ headerTintColor: 'white', headerStyle: { backgroundColor: '#07114F' } }}>
             <Stack.Screen name='BiddingList' component={BiddingList} options={{ headerShown: false }} />
-            <Stack.Screen
-                name='BiddingRoom'
-                component={BiddingRoom}
-                options={({ route }) => ({ title: `Room of ${route.params.name.slice(0, 10)} ... ` })}
-            />
+            <Stack.Screen name='BiddingRoom' component={BiddingRoom} options={({ route }) => ({ title: `${route.params.name.slice(0, 15)}` })} />
         </Stack.Navigator>
     );
 }

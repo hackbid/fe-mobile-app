@@ -1,16 +1,21 @@
 import { Dimensions, View, Text, Pressable, Image, StyleSheet, FlatList } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import CardToday from './components/CardToday';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchItemsToday } from '../../store/actions/actionCreator';
-import LoadingOverlay from '../../components/atoms/LoadingOverlay';
 import moment from 'moment-timezone';
+import { useFocusEffect } from '@react-navigation/native';
 const { width, height } = Dimensions.get('window');
 export default function BiddingList({ navigation }) {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.apps.itemToday);
     const [time, setTime] = useState(moment().format('DD MMMM YY - HH:mm:ss'));
+    useFocusEffect(
+        useCallback(() => {
+            dispatch(fetchItemsToday());
+        }, [])
+    );
     setInterval(() => {
         moment.tz.setDefault('Asia/Jakarta');
         setTime(moment().format('DD MMMM YY - HH:mm:ss'));

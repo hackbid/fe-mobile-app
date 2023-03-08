@@ -2,9 +2,10 @@ import { Text, View, ScrollView, Dimensions, ImageBackground, Image, StyleSheet,
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchCategory, fetchUserLogin } from '../../store/actions/actionCreator';
+import { fetchCategory, fetchItemsToday, fetchUserLogin } from '../../store/actions/actionCreator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import TypeWriter from 'react-native-typewriter';
+import { useFocusEffect } from '@react-navigation/native';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
@@ -25,6 +26,7 @@ export default function HomePage({ navigation }) {
         };
         checkLogin();
     }, []);
+
     const product = [
         {
             id: 1,

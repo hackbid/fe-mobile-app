@@ -1,16 +1,24 @@
 import HeaderList from './components/HeaderList';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import CardContainer from './components/CardContainer';
 import { BottomSheet } from 'react-native-btr';
 import { View, Text, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { useFocusEffect } from '@react-navigation/native';
+import { fetchItems } from '../../store/actions/actionCreator';
 
 export default function List() {
+    const dispatch = useDispatch();
     const [visible, setVisible] = useState(false);
     const toggleBottomNavigationView = () => {
         //Toggling the visibility state of the bottom sheet
         setVisible(!visible);
     };
+    useFocusEffect(
+        useCallback(() => {
+            dispatch(fetchItems());
+        }, [])
+    );
 
     return (
         <View style={styles.fragment}>

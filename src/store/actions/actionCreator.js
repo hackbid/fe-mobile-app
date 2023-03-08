@@ -203,3 +203,30 @@ export const fetchItemsToday = () => {
         }
     };
 };
+
+export const postReport = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            const { data: reportData } = await axios.post(SERVER_URL + '/items/report', data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            return reportData;
+        } catch (err) {
+            throw err.response.data;
+        }
+    };
+};
+
+export const getMyAuction = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            console.log(SERVER_URL + `/items/myauction/${id}`);
+            const { data: auctionData } = await axios.get(SERVER_URL + `/items/myauction/${id}`);
+            return auctionData;
+        } catch (err) {
+            throw err.response.data;
+        }
+    };
+};

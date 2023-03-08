@@ -4,5 +4,6 @@ import AccountPageStack from './AccountPage.stack';
 import BiddingPageStack from './BiddingPage.stack';
 import ListPageStack from './ListPage.stack';
 import TransactionPageStack from './TransactionPage.stack';
+import MyAuctionPageStack from './MyAuctionPage.stack';
 
-export { HomePageStack, LoginPageStack, AccountPageStack, ListPageStack, BiddingPageStack, TransactionPageStack };
+export { HomePageStack, LoginPageStack, AccountPageStack, ListPageStack, BiddingPageStack, TransactionPageStack, MyAuctionPageStack };
