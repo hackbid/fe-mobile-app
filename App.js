@@ -52,12 +52,8 @@ function MainApp() {
                 tabBarInactiveTintColor: 'white',
                 headerShown: false,
                 tabBarActiveTintColor: '#FEC72C',
-                tabBarAllowFontScaling: true,
                 tabBarStyle: {
                     backgroundColor: '#07114F',
-                    borderTopWidth: 0,
-                    elevation: 0,
-                    height: 60,
                 },
             })}>
             <Tab.Screen name='HomePageStack' component={HomePageStack} options={{ title: 'HOME' }} />

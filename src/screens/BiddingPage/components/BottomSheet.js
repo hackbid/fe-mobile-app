@@ -1,9 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
 import NumericInput from 'react-native-numeric-input';
 
 export default function ButtonSheet({ visible, toggleBottomNavigationView, multiple, bidNow, handleBid, bidData, setBidData, historyMongoId }) {
+    const [input, setInput] = useState(0);
+    useFocusEffect(
+        useCallback(() => {
+            setInput(bidNow);
+        }, [bidNow])
+    );
     return (
         <BottomSheet
             visible={visible}
@@ -20,8 +27,9 @@ export default function ButtonSheet({ visible, toggleBottomNavigationView, multi
                     <NumericInput
                         type='up-down'
                         value={bidData.bidValue}
-                        initValue={bidNow + multiple}
-                        minValue={bidNow + multiple}
+                        minValue={bidData.bidValue}
+                        totalWidth={200}
+                        totalHeight={50}
                         onChange={(number) => {
                             setBidData({
                                 ...bidData,
