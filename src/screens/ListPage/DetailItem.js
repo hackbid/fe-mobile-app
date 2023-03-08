@@ -69,11 +69,11 @@ export default function DetailItem({ route }) {
                         <View className='flex-row justify-center'>
                             <View className='items-center mt-1 mx-1 bg-[#26CD2D] p-2 rounded-lg'>
                                 <Text className='text-[15px] text-[#f3f3f3] '>Start Hour</Text>
-                                <Text className='text-white font-extrabold text-[25px]'>{item?.startHour}</Text>
+                                <Text className='text-white font-extrabold text-[25px]'>{item?.startHour}:00</Text>
                             </View>
                             <View className='items-center mt-1 mx-1 bg-[#E13636] p-2 rounded-lg'>
                                 <Text className='text-[15px] text-[#f3f3f3] '>End Hour</Text>
-                                <Text className='text-white font-extrabold text-[25px]'>{item?.endHour}</Text>
+                                <Text className='text-white font-extrabold text-[25px]'>{item?.endHour}:00</Text>
                             </View>
                         </View>
                     </View>

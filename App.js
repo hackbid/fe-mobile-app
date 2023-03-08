@@ -3,7 +3,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppRegistry } from 'react-native';
 //importing Stacks
-import { HomePageStack, LoginPageStack, AccountPageStack, BiddingPageStack, ListPageStack, TransactionPageStack } from './src/stacks/index';
+import {
+    HomePageStack,
+    LoginPageStack,
+    AccountPageStack,
+    BiddingPageStack,
+    ListPageStack,
+    TransactionPageStack,
+    MyAuctionPageStack,
+} from './src/stacks/index';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Provider, useDispatch } from 'react-redux';
@@ -15,17 +23,6 @@ import { useEffect } from 'react';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 function MainApp() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchItems());
-        dispatch(fetchItemsToday());
-    }, []);
-    setInterval(() => {
-        dispatch(fetchItemsToday());
-    }, 10000);
-    setInterval(() => {
-        dispatch(fetchItems());
-    }, 2000000);
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -42,6 +39,9 @@ function MainApp() {
                         iconName = 'ios-list-circle';
                     }
                     if (route.name === 'TransactionPageStack') {
+                        iconName = 'cart';
+                    }
+                    if (route.name === 'MyAuctionPageStack') {
                         iconName = 'cart';
                     }
                     if (route.name === 'AccountPageStack') {
@@ -63,7 +63,8 @@ function MainApp() {
             <Tab.Screen name='HomePageStack' component={HomePageStack} options={{ title: 'HOME' }} />
             <Tab.Screen name='BiddingPageStack' component={BiddingPageStack} options={{ title: 'TODAY' }} />
             <Tab.Screen name='ListPageStack' component={ListPageStack} options={{ title: 'AUCTION' }} />
-            <Tab.Screen name='TransactionPageStack' component={TransactionPageStack} options={{ title: 'TRANSACTION' }} />
+            <Tab.Screen name='TransactionPageStack' component={TransactionPageStack} options={{ title: 'CART' }} />
+            <Tab.Screen name='MyAuctionPageStack' component={MyAuctionPageStack} options={{ title: 'MY AUCTION' }} />
             <Tab.Screen name='AccountPageStack' component={AccountPageStack} options={{ title: 'ACCOUNT' }} />
         </Tab.Navigator>
     );

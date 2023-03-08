@@ -3,16 +3,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-import { List, DetailItem } from '../screens/ListPage';
-export default function ListPageStack({ navigation, route }) {
+import { MyAuction, PostItem } from '../screens/MyAuction/index';
+export default function TransactionPageStack({ navigation, route }) {
     return (
         <Stack.Navigator
             screenOptions={{
                 headerTintColor: 'white',
                 headerStyle: { backgroundColor: '#07114F' },
             }}>
-            <Stack.Screen name='List' component={List} options={{ headerShown: false }} />
-            <Stack.Screen name='DetailItem' component={DetailItem} options={({ route }) => ({ title: `Detail of ${route.params.name}` })} />
+            <Stack.Screen name='MyAuction' component={MyAuction} options={{ headerShown: true }} />
+            <Stack.Screen name='PostItem' component={PostItem} options={{ headerShown: true }} />
         </Stack.Navigator>
     );
 }
